@@ -1,16 +1,20 @@
+
 import React from 'react';
-import {
-    Collapse,
-    Navbar,
-    NavbarBrand,
-    NavbarToggler,
-    Nav,
-    NavItem,
-    NavLink } from 'reactstrap';
+import { Collapse,
+	 Navbar,
+	 NavbarToggler,
+	 NavbarBrand,
+	 Nav,
+	 NavItem,
+	 NavLink,
+       } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default class TopNav extends React.Component {
     constructor(props) {
 	super(props);
+	this.links = this.props.links;
+
 	this.toggle = this.toggle.bind(this);
 	this.state = {
 	    isOpen: false
@@ -18,29 +22,28 @@ export default class TopNav extends React.Component {
     }
     toggle() {
 	this.setState({
-	    isOpen: !this.state.isOpen });
+	    isOpen: !this.state.isOpen
+	});
     }
     render() {
-	return (
-	    <div>
+	return(
+	    <>
 	      <Navbar color="light" light expand="md">
 		<NavbarBrand href="/">CoLab</NavbarBrand>
 		<NavbarToggler onClick={this.toggle} />
 		<Collapse isOpen={this.state.isOpen} navbar>
-		  <Nav className="m1-auto" navbar>
-		    <NavItem>
-		      <NavLink href="/home/">Home</NavLink>
-		    </NavItem>
-		    <NavItem>
-		      <NavLink href="/about/">About</NavLink>
-		    </NavItem>
-		    <NavItem>
-		      <NavLink href="/users/">Users</NavLink>
-		    </NavItem>
-		  </Nav>
+		  <Nav className="ml-auto" navbar>
+		    { this.links.map((link,i) => (
+			<NavItem key={i}>
+			  <NavLink tag={Link} to={link['url']}>{link['name']}</NavLink>
+			</NavItem>
+		    )) } 
+	          </Nav>
 		</Collapse>
-	      </Navbar>
-	    </div>
+		</Navbar>
+		</>
 	);
     }
 }
+
+

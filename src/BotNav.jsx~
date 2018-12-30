@@ -1,0 +1,25 @@
+
+import React from 'react';
+import { Navbar,
+         Nav,
+         NavItem
+       } from 'reactstrap';
+
+export default class BotNav extends React.Component {
+    constructor(props) {
+	super(props);
+    }
+    render() {
+	return(
+	    <>
+	      <Navbar color="light" light>
+		<Nav pills>
+		  <NavItem>
+		    <b>Copyright &copy 2008 Design Shack</b>
+		  </NavItem>
+		</Nav>
+	      </Navbar>
+	    </>
+	);
+    }
+}

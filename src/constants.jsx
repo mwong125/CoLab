@@ -1,0 +1,7 @@
+
+export const BLUE_PRIMARY = { //#6346ce
+    red: 99,
+    green: 70,
+    blue: 206
+};
+

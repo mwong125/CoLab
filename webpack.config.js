@@ -1,4 +1,5 @@
 const path = require('path');
+var nodeModules = path.resolve(path.join(__dirname, 'node_modules'));
 
 module.exports = {
     entry: './src/App.jsx',
@@ -14,11 +15,10 @@ module.exports = {
 		use: {
 		    loader: "babel-loader"
 		}
-	    }, {
-		test: /\.s?css/,
-		use: [
-		    'css-loader'
-		]
+	    },
+	    {
+		test: /\.css$/,
+		loaders: ["style-loader", "css-loader"]
 	    }
 	]
     }

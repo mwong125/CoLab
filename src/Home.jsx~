@@ -1,0 +1,54 @@
+
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import styled from 'styled-components';
+
+const StyledSidePanel = styled.div`
+background: orange;
+border: 2px solid silver;
+height: 100%;
+`;
+
+const StyledLinearFeed = styled.div`
+background: blue;
+border: 2px solid silver;
+height: 100%;
+`;
+
+const HOME_HEIGHT = 1000;
+
+class SidePanel extends React.Component {
+    render() {
+	return(
+	    <>
+	      <StyledSidePanel></StyledSidePanel>
+	    </>
+	);	
+    }
+}
+
+class LinearFeed extends React.Component {
+    render() {
+	return(
+	    <>
+	      <StyledLinearFeed></StyledLinearFeed>
+	    </>
+	);
+    }
+}
+
+export default class Home extends React.Component {
+
+    render() {
+	return(
+	    <>
+	      <Container>
+		<Row style={{ height: HOME_HEIGHT + 'px' }} >
+		      <Col xs="3"><SidePanel/></Col>
+		      <Col xs="9"><LinearFeed/></Col>
+		    </Row>
+	      </Container>
+	    </>
+	);
+    }
+}
