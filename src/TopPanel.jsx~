@@ -1,0 +1,54 @@
+
+import React from 'react';
+import {
+    Container,
+    Row,
+    Col,
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+} from 'reactstrap';
+
+import TopPanelItem from './TopPanelItem.jsx';
+
+export default class TopPanel extends React.Component {
+    constructor(props) {
+	super(props);
+
+	this.toggle = this.toggle.bind(this);
+	this.state = {
+	    isOpen: false
+	};
+    }
+    toggle() {
+	this.setState({
+	    isOpen: !this.state.isOpen
+	});
+    }
+    render() {
+	return(
+	    <>
+	      <Container>
+		<Row>
+		  <Col sm={{offset}}>
+		    <TopPanelItem text="item 1"/>
+		  </Col>
+		  <Col>
+		    <TopPanelItem text="item 2"/>
+		  </Col>
+		  <Col>
+		    <TopPanelItem text="item 3"/>
+		  </Col>
+		  <Col>
+		    <TopPanelItem text="item 4"/>
+		  </Col>
+		</Row>
+	      </Container>
+	    </>
+	);
+    }
+}

@@ -1,6 +1,11 @@
 
 import React from 'react';
-import { Collapse,
+import { Button,
+	 Collapse,
+	 Form,
+	 FormGroup,
+	 Label,
+	 Input,
 	 Navbar,
 	 NavbarToggler,
 	 NavbarBrand,
@@ -9,6 +14,7 @@ import { Collapse,
 	 NavLink,
        } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import NavSearch from './NavSearch.jsx';
 
 export default class TopNav extends React.Component {
     constructor(props) {
@@ -32,12 +38,17 @@ export default class TopNav extends React.Component {
 		<NavbarBrand href="/">CoLab</NavbarBrand>
 		<NavbarToggler onClick={this.toggle} />
 		<Collapse isOpen={this.state.isOpen} navbar>
+		  <Nav>
+		    <NavItem>
+		      <NavSearch/>
+		    </NavItem>
+		  </Nav>
 		  <Nav className="ml-auto" navbar>
 		    { this.links.map((link,i) => (
 			<NavItem key={i}>
 			  <NavLink tag={Link} to={link['url']}>{link['name']}</NavLink>
 			</NavItem>
-		    )) } 
+		    )) }
 	          </Nav>
 		</Collapse>
 		</Navbar>

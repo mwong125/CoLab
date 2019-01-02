@@ -7,11 +7,15 @@ import styled from 'styled-components';
 import TopNav from './TopNav.jsx';
 import BotNav from './BotNav.jsx';
 import Home from './Home.jsx';
+import TopPanel from './TopPanel.jsx';
+import Main from './Main.jsx';
+import DashBoard from './DashBoard.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const StyledRouteApplets = styled.div`
-background: grey;
+background: #f8f9fa;
+border-top: 1px solid silver;
 `;
 
 class App extends React.Component {
@@ -21,12 +25,12 @@ class App extends React.Component {
 	      <div>
 		<TopNav links={[
 			    {
-				url : '/',
+				url : '/home',
 				name : 'home'
 			    },
 			    {
-				url : '/about',
-				name : 'about'
+				url : '/dashboard',
+				name : 'dashboard'
 			    },
 			    {
 				url : '/topics',
@@ -34,8 +38,9 @@ class App extends React.Component {
 			    }
 			]}/>
 		<StyledRouteApplets>
-		  <Route exact path="/" component={Home} />
-		  <Route path="/about" component={About} />
+		  <Route exact path="/" component={Main}/>
+		  <Route path="/home" component={Home} />
+		  <Route path="/dashboard" component={DashBoard} />
 		  <Route path="/topics" component={Topics} />
 		</StyledRouteApplets>
 		<BotNav/>
@@ -43,14 +48,6 @@ class App extends React.Component {
 	    </Router>
 	);
     }
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
 }
 
 function Topics({ match }) {

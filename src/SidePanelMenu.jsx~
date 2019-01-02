@@ -1,0 +1,21 @@
+
+import React from 'react';
+import { Coolapse, Button, CardBody, Card } from 'reactstrap';
+
+
+
+export default class SidePanleMenu.jsx extends React.Component {
+    constructor(props) {
+	super(props);
+	this.toggle = this.toggle.bind(this);
+	this.state = { collapse: false };
+    }
+    toggle() {
+	this.setState({ collapse: !this.state.collapse });
+    }
+    render() {
+	return(
+	    
+	);
+    }
+}

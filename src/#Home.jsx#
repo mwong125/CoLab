@@ -13,12 +13,8 @@ background-color: light;
 border: 2px solid silver;
 `;
 
-const StyledLinearFeed = styled.div`
-margin-top: 1rem;
-margin-bottom: 1rem;
-background-color: rgba(99, 70, 216, 0.25);
+);
 border: 2px solid silver;
-border-radius: 1rem;
 `;
 
 export default class Home extends React.Component {

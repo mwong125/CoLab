@@ -1,0 +1,15 @@
+
+import React from 'react';
+
+export default class TopPanelItem extends React.Component {
+    constructor(props) {
+	this.text = this.props.text;
+    };
+    render() {
+	return(
+	    <>
+	      { this.text }
+	    </>
+	);
+    }
+}

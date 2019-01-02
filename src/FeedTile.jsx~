@@ -1,0 +1,96 @@
+
+import React from 'react';
+import { Container, Col, Jumbotron, Row } from 'reactstrap';
+import styled from 'styled-components';
+import { FaComments, FaMagic } from 'react-icons/fa';
+
+const StyledFeedTile = styled.div`
+border: 5px solid black;
+`;
+
+const StyledFeedTileQuickView = styled.div`
+height: 100%;
+width: 50px;
+background: rgba(0, 0, 0, .25);
+`;
+
+class FeedTileQuickView extends React.Component {
+    constructor(props) {
+	super(props);
+	this.state = { isActive: false };
+
+	this.toggle = this.toggle.bind(this);
+    }
+    toggle() {
+	this.setState({
+	    isActive: !this.state.isActive });
+    }
+    render() {
+	return(
+	    <>
+	      { this.state.isActive ?
+		  <StyledFeedTileQuickView onMouseLeave={this.toggle}>
+			<Container>
+			      <Row>
+				    View More
+				  </Row>
+			    </Container>
+		      </StyledFeedTileQuickView>
+		      : <div style={{height: "100%", width: "50px"}} onMouseEnter={this.toggle}></div>
+		  }
+		  
+	    </>
+	);
+    }
+} 
+
+export default class FeedTile extends React.Component {
+    constructor(props) {
+	super(props);
+	this.state = {
+	    contentHeader: props.header,
+	    contentURL: props.URL, //image uri????      
+	    contentDescription: props.description
+	};
+    }
+    render() {
+	
+	return(
+	    <StyledFeedTile>
+	      <Row>
+		<Col xs="11">
+		  <Jumbotron style={{ background: "rgba(99, 70, 216, 0.0)"}} fluid>
+		    <h1 className="display-7">{this.state.contentHeader}</h1>
+		    <Container>
+		      <Row noGutters>
+			<Col xs="11">
+			  <img style={{width: '100%', height: 'auto'}} src={ '/static/' + this.state.contentURL}/>
+			</Col>
+			<Col xs="1" style={{marginLeft: "-50px"}}>
+			  <FeedTileQuickView/>
+			</Col>
+		      </Row>
+		    </Container>
+		    
+		    <hr className="my-2"/>
+		    <Container>
+		      <Row>
+			<p className="lead">{this.state.contentDescription}</p>
+		      </Row>
+		      <Row>
+			<Col xs="auto">
+			  <FaComments/> Discussion
+			</Col>
+			<Col xs="auto">
+			  <FaMagic/> Inspo
+			</Col>
+		      </Row>
+		    </Container>
+		  </Jumbotron>
+		</Col>
+		<Col xs="1"/>
+	      </Row>
+	    </StyledFeedTile>
+	);
+    }
+}
