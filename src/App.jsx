@@ -15,7 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const StyledRouteApplets = styled.div`
 background: #f8f9fa;
-border-top: 1px solid silver;
+border-top: 2px solid silver;
+border-bottom: 2px solid silver;
 `;
 
 class App extends React.Component {

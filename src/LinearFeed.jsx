@@ -5,6 +5,16 @@ import { Container,
 	 Col
        } from 'reactstrap';
 import FeedTile from './FeedTile.jsx';
+import styled from  'styled-components';
+
+const StyledFeedTile = styled.div`
+background-color: rgba(99, 70, 216, 0.25);
+border: 2px solid silver;
+border-radius: 1rem;
+padding: 1rem;
+margin-top: .25rem;
+margin-bottom: .25rem;
+`;
 
 export default class LinearFeed extends React.Component {
     constructor(props) {
@@ -23,17 +33,16 @@ export default class LinearFeed extends React.Component {
             <>
 	      <Container>
 		{ this.state.linearFeedContent ? this.state.linearFeedContent.map(tile => {
-		    console.log(tile.contentDescription);
-		    return(<><FeedTile
+		    return(<><Row><Col><StyledFeedTile><FeedTile
                                    header={tile.contentHeader}
                                    URL={tile.contentURL}
                                    text={tile.contentText}
 				   description={tile.contentDescription}
-                                   />
-			   <hr className="my-1"/></>); })
-		  : <div><p>Loading...</p></div>
+                             />
+			   </StyledFeedTile></Col></Row></>); })
+		  : <StyledFeedTile><p>Loading...</p></StyledFeedTile>
 		}
-	    </Container>
+	      </Container>
             </>
         );
     }

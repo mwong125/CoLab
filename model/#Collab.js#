@@ -1,0 +1,23 @@
+
+module.exports = class Collab {
+    constructor(collab_name,
+		collab_content) { //array of pic urls	
+	this._collab_name = collab_name;
+	this._collab_content = collab_content;
+    }
+    toString() {
+	return this._collab_name;
+    }
+    get collab_name() {
+	return this._collab_name;
+    }
+    set collab_name(collab_name) {
+	this._collab_name = collab_name;
+    }
+    get collab_content() {
+	return this._collab_content;
+    }
+    set collab_content(collab_content) {
+	this._collab_content;
+    }
+}

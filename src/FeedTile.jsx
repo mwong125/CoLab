@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { FaComments, FaMagic, FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 
 const StyledFeedTile = styled.div`
-border: 5px solid black;
+
 `;
 
 const StyledFeedTileQuickView = styled.div`
@@ -64,8 +64,8 @@ export default class FeedTile extends React.Component {
 	    <StyledFeedTile>
 	      <Row noGutters>
 		<Col xs="11">
-		  <Jumbotron style={{ background: "rgba(99, 70, 216, 0.0)"}} fluid>
-		    <h3 className="display-7">{this.state.contentHeader}</h3>
+		  <Jumbotron style={{ background: "rgba(0, 0, 0, 0.0)", padding: "0 0 0 0"}} fluid>
+		    <h5 className="display-7">{this.state.contentHeader}</h5>
 		    <Container>
 		      <Row noGutters>
 			<Col xs="11">
